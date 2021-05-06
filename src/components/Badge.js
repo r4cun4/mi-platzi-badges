@@ -4,6 +4,7 @@ import './styles/Badge.css';
 import confLogo from '../images/badge-header.svg';
 
 class Badge extends React.Component {
+  
   render() {
     return (
       <div className="Badge">
