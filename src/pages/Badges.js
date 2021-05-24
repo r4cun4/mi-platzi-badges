@@ -4,8 +4,10 @@ import './styles/Badges.css';
 import confLogo from '../images/badge-header.svg';
 import BadgesList from '../components/BadgesList';
 
+import api from '../api';
+
 class Badges extends React.Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         console.log('1. constructor()');
 
@@ -50,9 +52,9 @@ class Badges extends React.Component {
                   ],
             });
         }, 3000);
-    }
+    }*/
 
-    componentDidUpdate(prevProps, prevState) {
+    /*componentDidUpdate(prevProps, prevState) {
         console.log('5. componentDidUpdate()');
         console.log({
             prevProps: prevProps, prevState: prevState
@@ -62,15 +64,43 @@ class Badges extends React.Component {
             props: this.props,
             state: this.state,
         });
-    }
+    }*/
 
-    componentWillUnmount() {
+    /*componentWillUnmount() {
         console.log('6. componentWillUnmount');
         clearTimeout(this.timeoutId);
+    }*/
+
+    state = {
+        loading: true,
+        error: null,
+        data: undefined
+    };
+
+    componentDidMount () {
+        this.fetchData();
     }
 
+    fetchData = async () => {
+        this.setState({ loading: true, error: null });
+
+        try {
+            const data = await api.badges.list();
+            this.setState({ loading: false, data: data });
+        } catch (error) {
+            this.setState({ loading: false, error: error });
+        }
+    };
+
     render(){
-        console.log('2/4. render()');
+        if (this.state.loading === true) {
+            return 'Loading...';
+        }
+
+        /*if (this.state.error) {
+            return `Error: ${error.message}`;
+        }*/
+        
         return (
             <>
                 <div className="Badges">
