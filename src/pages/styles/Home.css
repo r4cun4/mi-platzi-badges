@@ -1,6 +1,15 @@
-/*.Badges__container {
-    width: 100%;
-    padding: 2rem 0;
-    background-repeat: repeat;
-    margin-bottom: 1rem;
-  }*/
+.Home {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+}
+
+.btn btn-primary {
+  margin: 0 auto;
+}

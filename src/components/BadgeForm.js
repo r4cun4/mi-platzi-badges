@@ -18,11 +18,11 @@ handleClick = (e) => {
     console.log("hiciste click");
 };
 
-handleSubmit = (e) => {
+/*handleSubmit = (e) => {
     e.preventDefault();
     console.log("form fue submitted")
     console.log(this.state);
-};
+};*/
 
 
     render() {
@@ -30,7 +30,7 @@ handleSubmit = (e) => {
             <div>
                 <h1>New Attendant</h1>
 
-                <form onSubmit={this.handleSubmit}> 
+                <form onSubmit={this.props.onSubmit}> 
                     <div className="form-group">
                         <label>First Name</label>
                         <input
